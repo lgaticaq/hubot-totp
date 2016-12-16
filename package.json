@@ -1,6 +1,6 @@
 {
   "name": "hubot-totp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A Hubot script to generate and save totp secret encrypted",
   "main": "src",
   "scripts": {
