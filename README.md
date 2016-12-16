@@ -29,6 +29,10 @@ add `["hubot-totp"]` to `external-scripts.json`.
 
 `hubot totp insert <name> <secret>` -> `Insert a totp secret`
 
+`hubot totp secret <name>` -> `Get totp secret`
+
+`hubot totp get <name>` -> `Get totp secret, hex and qr`
+
 ## License
 
 [MIT](https://tldrlegal.com/license/mit-license)

@@ -13,6 +13,8 @@
 #   hubot totp qr <name> -> Get qr image of totp secret
 #   hubot totp hex <name> -> Convert totp secret to hex
 #   hubot totp insert <name> <secret> -> Insert a totp secret
+#   hubot totp secret <name> -> Get totp secret
+#   hubot totp get <name> -> Get totp secret, hex and qr
 #
 # Author:
 #   lgaticaq
@@ -101,3 +103,21 @@ module.exports = (robot) ->
         robot.emit("error", err)
     robot.brain.set("totp:#{name}", secret)
     res.send("totp saved :ok_hand:")
+
+  robot.respond /totp secret (\w+)/i, (res) ->
+    name = res.match[1]
+    secret = getSecret(name)
+    unless secret?
+      res.send("totp with name *#{name}* not exist")
+      return
+    res.send(secret)
+
+  robot.respond /totp get (\w+)/i, (res) ->
+    name = res.match[1]
+    secret = getSecret(name)
+    unless secret?
+      res.send("totp with name *#{name}* not exist")
+      return
+    qr = getQr(name, secret)
+    hex = getHex(secret)
+    res.send "secret: #{secret}\nhex: #{hex}\nqr: #{qr}"
