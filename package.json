@@ -1,0 +1,49 @@
+{
+  "name": "hubot-totp",
+  "version": "0.0.0",
+  "description": "A Hubot script to generate and save totp secret encrypted",
+  "main": "src",
+  "scripts": {
+    "pretest": "coffeelint src test",
+    "test": "mocha --compilers coffee:coffee-script/register --require coffee-coverage/register-istanbul",
+    "posttest": "istanbul report text-summary lcov",
+    "coveralls": "coveralls < coverage/lcov.info",
+    "codeclimate": "codeclimate-test-reporter < coverage/lcov.info",
+    "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags && npm publish",
+    "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags && npm publish",
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags && npm publish"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lgaticaq/hubot-totp.git"
+  },
+  "keywords": [
+    "hubot",
+    "hubot-scripts"
+  ],
+  "author": "Leonardo Gatica",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lgaticaq/hubot-totp/issues"
+  },
+  "homepage": "https://github.com/lgaticaq/hubot-totp#readme",
+  "dependencies": {
+    "simple-encryptor": "^1.1.0",
+    "thirty-two": "^1.0.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "codeclimate-test-reporter": "^0.4.0",
+    "coffee-coverage": "^1.0.1",
+    "coffee-script": "^1.12.2",
+    "coffeelint": "^1.16.0",
+    "coveralls": "^2.11.15",
+    "generate-changelog": "^1.1.0",
+    "hubot-test-helper": "^1.5.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0"
+  }
+}
