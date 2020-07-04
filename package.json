@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/lgaticaq/hubot-totp#readme",
   "dependencies": {
-    "simple-encryptor": "^1.1.0",
+    "simple-encryptor": "^4.0.0",
     "thirty-two": "^1.0.2"
   },
   "devDependencies": {
